@@ -4,104 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <title>Employee Table</title>
 </head>
-
-<style>
-    table {
-  border-collapse: collapse;
-  width: 100%;
-}
-th, td {
-  padding: 8px;
-  text-align: left;
-  border-bottom: 1px solid #ddd;
-}
-th {
-  background-color: #4c6baf;
-  color: white;
-}
-tr:hover {
-  background-color: #b3afaf;
-}
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0, 0, 0, 0.4);
-}
-.modal-content {
-  background-color: #fefefe;
-  margin: 10% auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%;
-  max-width: 500px;
-}
-.close {
-  color: #e20000;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
-.close:hover,
-.close:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
-}
-input[type=text], input[type=email], input[type=tel] {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-}
-input[type=submit] {
-  background-color: #4CAF50;
-  color: white;
-  padding: 12px 20px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-input[type=submit]:hover {
-  background-color: #45a049;
-}
-.deletebutton{
-    background-color: #e20000;
-    color: white;
-    border: none;
-    cursor: pointer;
-    padding: 5px;
-    margin: 2px;
-}
-.editbutton{
-    background-color:#45a049;
-    border: none;
-    color: white;
-    cursor: pointer;
-    padding: 5px;
-    margin: 2px;
-}
-button{
-    background-color: #4c6baf;
-    color: white;
-    border: none;
-    cursor: pointer;
-    padding: 5px;
-    margin-top: 10px;
-}
-</style>
-
 
 <body>
     <h1 style="text-align: center;">Employee Details</h1>
@@ -161,6 +65,101 @@ button{
     </div>
 </body>
 
+<!-- ---------------------    Style-CSS  ------------------------------------  -->
+
+<style>
+  table {
+border-collapse: collapse;
+width: 100%;
+}
+th, td {
+padding: 8px;
+text-align: left;
+border-bottom: 1px solid #ddd;
+}
+th {
+background-color: #4c6baf;
+color: white;
+}
+tr:hover {
+background-color: #b3afaf;
+}
+.modal {
+display: none;
+position: fixed;
+z-index: 1;
+left: 0;
+top: 0;
+width: 100%;
+height: 100%;
+overflow: auto;
+background-color: rgba(0, 0, 0, 0.4);
+}
+.modal-content {
+background-color: #fefefe;
+margin: 10% auto;
+padding: 20px;
+border: 1px solid #888;
+width: 80%;
+max-width: 500px;
+}
+.close {
+color: #e20000;
+float: right;
+font-size: 28px;
+font-weight: bold;
+}
+.close:hover,
+.close:focus {
+color: black;
+text-decoration: none;
+cursor: pointer;
+}
+input[type=text], input[type=email], input[type=tel] {
+width: 100%;
+padding: 12px 20px;
+margin: 8px 0;
+display: inline-block;
+border: 1px solid #ccc;
+border-radius: 4px;
+box-sizing: border-box;
+}
+input[type=submit] {
+background-color: #4CAF50;
+color: white;
+padding: 12px 20px;
+border: none;
+border-radius: 4px;
+cursor: pointer;
+}
+input[type=submit]:hover {
+background-color: #45a049;
+}
+.deletebutton{
+  background-color: #e20000;
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  margin: 2px;
+}
+.editbutton{
+  background-color:#45a049;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 5px;
+  margin: 2px;
+}
+button{
+  background-color: #4c6baf;
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  margin-top: 10px;
+}
+</style>
 
 
 <!-----------------------     JavaScript ------------------------------------- -->
@@ -272,4 +271,6 @@ saveEmployeeChanges();
 
 viewEmployeeDetails();
 </script>
+
+
 </html>
