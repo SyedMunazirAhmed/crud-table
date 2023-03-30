@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Employee Table</title>
 </head>
-
 <body>
     <h1 style="text-align: center;">Employee Details</h1>
     <table>
@@ -161,116 +160,117 @@ button{
 }
 </style>
 
-
 <!-----------------------     JavaScript ------------------------------------- -->
 <script>
-    // Employee data array
-let employees = [
-  { id: Math.floor(Math.random() * 1000), name: 'John Doe', email: 'john.doe@example.com', phone: '1234567890' },
-  { id: Math.floor(Math.random() * 1000), name: 'Sheldon Cooper', email: 'Cooper.sheldon@example.com', phone: '2345678901' },
-  { id: Math.floor(Math.random() * 1000), name: 'Bob Smith', email: 'bob.smith@example.com', phone: '3456789012' }
-];
+          // Employee data array
+      let employees = [
+        { id: Math.floor(Math.random() * 1000), name: 'John Doe', email: 'john.doe@example.com', phone: '1234567890' },
+        { id: Math.floor(Math.random() * 1000), name: 'Sheldon Cooper', email: 'Cooper.sheldon@example.com', phone: '2345678901' },
+        { id: Math.floor(Math.random() * 1000), name: 'Bob Smith', email: 'bob.smith@example.com', phone: '3456789012' }
+      ];
 
-// Add Employee Modal
-let addEmployeeModal = document.getElementById('add-employee-modal');
-let addEmployeeForm = addEmployeeModal.getElementsByTagName('form')[0];
-let addEmployeeName = addEmployeeForm.elements['employee-name'];
-let addEmployeeEmail = addEmployeeForm.elements['employee-email'];
-let addEmployeePhone = addEmployeeForm.elements['employee-phone'];
+      // Add Employee Modal
+      let addEmployeeModal = document.getElementById('add-employee-modal');
+      let addEmployeeForm = addEmployeeModal.getElementsByTagName('form')[0];
+      let addEmployeeName = addEmployeeForm.elements['employee-name'];
+      let addEmployeeEmail = addEmployeeForm.elements['employee-email'];
+      let addEmployeePhone = addEmployeeForm.elements['employee-phone'];
 
-// Edit
-  // Edit Employee Modal
-let editEmployeeModal = document.getElementById('edit-employee-modal');
-let editEmployeeForm = editEmployeeModal.getElementsByTagName('form')[0];
-let editEmployeeName = editEmployeeForm.elements['edit-employee-name'];
-let editEmployeeEmail = editEmployeeForm.elements['edit-employee-email'];
-let editEmployeePhone = editEmployeeForm.elements['edit-employee-phone'];
-let editEmployeeId;
+      // Edit
+        // Edit Employee Modal
+      let editEmployeeModal = document.getElementById('edit-employee-modal');
+      let editEmployeeForm = editEmployeeModal.getElementsByTagName('form')[0];
+      let editEmployeeName = editEmployeeForm.elements['edit-employee-name'];
+      let editEmployeeEmail = editEmployeeForm.elements['edit-employee-email'];
+      let editEmployeePhone = editEmployeeForm.elements['edit-employee-phone'];
+      let editEmployeeId;
 
-// View Employee Details
-function viewEmployeeDetails() {
-let employeeTable = document.getElementById('employee-table');
-employeeTable.innerHTML = '';
-for (let employee of employees) {
-let row = document.createElement('tr');
-row.innerHTML = `
-  <td>${employee.id}</td>
-  <td>${employee.name}</td>
-  <td>${employee.email}</td>
-  <td>${employee.phone}</td>
-  <td>
-    <button class="editbutton" onclick="editEmployee(${employee.id})">Edit</button>
-    <button class="deletebutton" onclick="deleteEmployee(${employee.id})">Delete</button>
-  </td>
-`;
-employeeTable.appendChild(row);
-}
-}
+      // View Employee Details
+      function viewEmployeeDetails() 
+      {
+        let employeeTable = document.getElementById('employee-table');
+        employeeTable.innerHTML = '';
+        for (let employee of employees) 
+        {
+          let row = document.createElement('tr');
+          row.innerHTML = `<td>${employee.id}</td>
+                            <td>${employee.name}</td>
+                            <td>${employee.email}</td>
+                            <td>${employee.phone}</td>
+                            <td>
+                              <button class="editbutton" onclick="editEmployee(${employee.id})">Edit</button>
+                              <button class="deletebutton" onclick="deleteEmployee(${employee.id})">Delete</button>
+                            </td>`;
+                employeeTable.appendChild(row);
+        }
+      }
 
-// Add Employee
-function addEmployee() {
-let id = employees.length + Math.floor(Math.random() * 100);
-let name = addEmployeeName.value;
-let email = addEmployeeEmail.value;
-let phone = addEmployeePhone.value;
-let employee = { id, name, email, phone };
-employees.push(employee);
-addEmployeeModal.style.display = 'none';
-addEmployeeForm.reset();
-viewEmployeeDetails();
-}
+      // Add Employee
+      function addEmployee() 
+      {
+        let id = employees.length + Math.floor(Math.random() * 100);
+        let name = addEmployeeName.value;
+        let email = addEmployeeEmail.value;
+        let phone = addEmployeePhone.value;
+        let employee = { id, name, email, phone };
+        employees.push(employee);
+        addEmployeeModal.style.display = 'none';
+        addEmployeeForm.reset();
+        viewEmployeeDetails();
+      }
 
-// Edit Employee
-function editEmployee(id) {
-editEmployeeId = id;
-let employee = employees.find(employee => employee.id === id);
-editEmployeeName.value = employee.name;
-editEmployeeEmail.value = employee.email;
-editEmployeePhone.value = employee.phone;
-editEmployeeModal.style.display = 'block';
-}
+      // Edit Employee
+      function editEmployee(id) 
+      {
+        editEmployeeId = id;
+        let employee = employees.find(employee => employee.id === id);
+        editEmployeeName.value = employee.name;
+        editEmployeeEmail.value = employee.email;
+        editEmployeePhone.value = employee.phone;
+        editEmployeeModal.style.display = 'block';
+      }
 
-function saveEmployeeChanges() {
-let employee = employees.find(employee => employee.id === editEmployeeId);
-employee.name = editEmployeeName.value;
-employee.email = editEmployeeEmail.value;
-employee.phone = editEmployeePhone.value;
-editEmployeeModal.style.display = 'none';
-editEmployeeForm.reset();
-viewEmployeeDetails();
-}
+      function saveEmployeeChanges()
+      {
+        let employee = employees.find(employee => employee.id === editEmployeeId);
+        employee.name = editEmployeeName.value;
+        employee.email = editEmployeeEmail.value;
+        employee.phone = editEmployeePhone.value;
+        editEmployeeModal.style.display = 'none';
+        editEmployeeForm.reset();
+        viewEmployeeDetails();
+      }
 
-// Delete Employee
-function deleteEmployee(id) {
-employees = employees.filter(employee => employee.id !== id);
-viewEmployeeDetails();
-}
+      // Delete Employee
+      function deleteEmployee(id) 
+      {
+        employees = employees.filter(employee => employee.id !== id);
+        viewEmployeeDetails();
+      }
 
-// Modal
-let addEmployeeButton = document.createElement('button');
-addEmployeeButton.innerHTML = `<a class="addemployeebutton"> Add Employee </a>`;
-// addEmployeeButton.innerText = 'Add Employee';
-addEmployeeButton.onclick = () => addEmployeeModal.style.display = 'block';
-document.body.appendChild(addEmployeeButton);
+      // Modal
+      let addEmployeeButton = document.createElement('button');
+      addEmployeeButton.innerHTML = `<a class="addemployeebutton"> Add Employee </a>`;
+      // addEmployeeButton.innerText = 'Add Employee';
+      addEmployeeButton.onclick = () => addEmployeeModal.style.display = 'block';
+      document.body.appendChild(addEmployeeButton);
 
-let addEmployeeModalClose = addEmployeeModal.getElementsByClassName('close')[0];
-addEmployeeModalClose.onclick = () => addEmployeeModal.style.display = 'none';
+      let addEmployeeModalClose = addEmployeeModal.getElementsByClassName('close')[0];
+      addEmployeeModalClose.onclick = () => addEmployeeModal.style.display = 'none';
 
-let editEmployeeModalClose = editEmployeeModal.getElementsByClassName('close')[0];
-editEmployeeModalClose.onclick = () => editEmployeeModal.style.display = 'none';
+      let editEmployeeModalClose = editEmployeeModal.getElementsByClassName('close')[0];
+      editEmployeeModalClose.onclick = () => editEmployeeModal.style.display = 'none';
 
-addEmployeeForm.addEventListener('submit', (event) => {
-event.preventDefault();
-addEmployee();
-});
+      addEmployeeForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+      addEmployee();
+      });
 
-editEmployeeForm.addEventListener('submit', (event) => {
-event.preventDefault();
-saveEmployeeChanges();
-});
+      editEmployeeForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+      saveEmployeeChanges();
+      });
 
-viewEmployeeDetails();
+      viewEmployeeDetails();
 </script>
-
-
 </html>
